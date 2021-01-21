@@ -54,9 +54,8 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::put('/categories/{id}','CategorieController@update');
 
     //
-    Route::get('/livres','LivreController@index');
-    Route::post('/livres','LivreController@store');
-   /* Route::delete('/categories/{id}/delete','CategorieController@delete');
-    Route::get('/categories/{id}/edit','CategorieController@edit');
-    Route::put('/categories/{id}','CategorieController@update');*/
+    Route::resource('livres','LivreController');
+    Route::resource('genres','GenreController');
+    Route::resource('auteurs','AuteurController');
+
 

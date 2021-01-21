@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddColumnCategorieId extends Migration
+class AddColumnGenreId extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,8 @@ class AddColumnCategorieId extends Migration
     public function up()
     {
         Schema::table('examplaires', function (Blueprint $table) {
-            $table->BigInteger('categorie_id')->unsigned()->after('description');
-            $table->foreign('categorie_id')->references('id_categorie')->on('categories')->constrainted()->onUpdate("cascade")->onDelete("cascade");
+            $table->BigInteger('genre_id')->unsigned()->after('pdf');
+            $table->foreign('genre_id')->references('id_genre')->on('genres');
         });
     }
 
@@ -27,8 +27,8 @@ class AddColumnCategorieId extends Migration
     public function down()
     {
         Schema::table('examplaires', function (Blueprint $table) {
-            $table->dropForeign(['categorie_id']);
-            $table->dropColumn('categorie_id');
+            $table->dropForeign(['genre_id']);
+            $table->dropColumn('genre_id');
         });
     }
 }

@@ -38,6 +38,22 @@
           <div class="input-group">
             <input type="file" class="form-control" name="pdf" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
           </div>
+          <div class="form-group">
+            <label for="Genre" class="col-form-label">Genre:</label> <br>
+            <select class="form-control" name ="genre" id="Genre">
+            @foreach($genres as $genre)
+              <option value='{{$genre->id_genre}}'> {{$genre->genre}}</option>
+           @endforeach
+           </select>
+          </div>
+          <div class="form-group">
+            <label for="Auteur" class="col-form-label">Auteur:</label> <br>
+            <select class="form-control" name ="auteur" id="Auteur">
+            @foreach($auteurs as $auteur)
+              <option value='{{$auteur->id_auteur}}'> {{$auteur->nom}}  {{$auteur->prenom}}</option>
+           @endforeach
+           </select>
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -78,6 +94,21 @@
                         Disponibilite
                       </th>
                       <th >
+                        Genre
+                      </th>
+                      <th >
+                        Auteur
+                      </th>
+                      <th >
+                        Quantité
+                      </th>
+                      <th >
+                        Prix
+                      </th>
+                      <th >
+                        Image
+                      </th>
+                      <th >
                         Modifier
                       </th>
                       <th >
@@ -112,6 +143,30 @@
                             Indisponible
                         </td>
                         @endif
+                        <td>
+                        @foreach($genres as $genre)
+                          @if  ($genre->id_genre === $examplaire->genre_id)
+                          {{$genre->genre}}
+                          @endif
+                        @endforeach
+                        </td>
+                        <td>
+                        @foreach($auteurs as $auteur)
+                          @if  ($auteur->id_auteur === $examplaire->auteur_id)
+                          {{$auteur->nom}} {{$auteur->prenom}}
+                          
+                          @endif
+                        @endforeach
+                        </td>
+                        <td>
+                          {{$examplaire->qte}}
+                        </td>
+                        <td>
+                          {{$examplaire->prix}}
+                        </td>
+                        <td>
+                          {{$examplaire->image}}
+                        </td>
                         <td>
                             <a href='/examplaires/{{$examplaire->id}}/edit'  class="btn btn-success"> Edit </a>
                         </td>

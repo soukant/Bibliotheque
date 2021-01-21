@@ -54,26 +54,36 @@
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                      <th>
+                    <th>
                         Id
                       </th>
                       <th>
-                        Title
+                        Titre
                       </th>
                       <th>
-                        Sub-Title
+                      Quantité
+                        </th>
+                      <th >
+                        Prix
                       </th>
                       <th >
-                        Description
+                        Type
                       </th>
                       <th >
-                        Categorie
+                        Auteur
                       </th>
                       <th >
-                        Edit
+                        Genre
                       </th>
                       <th >
-                        Delete
+                        Category
+                      </th>
+                      
+                      <th >
+                        Modifier
+                      </th>
+                      <th >
+                        Supprimer
                       </th>
                     </thead>
                     <tbody>

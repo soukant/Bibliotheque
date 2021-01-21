@@ -6,13 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use App\Examplaire;
 use App\Categorie;
+use App\Auteur;
+use App\Genre;
 class ExamplaireController extends Controller
 {
     public function index()
     {
         $examplaires =  Examplaire::all();
         $categories = Categorie::all();
-        return view('admin.examplaires',['examplaires'=>$examplaires])->with("categories",$categories);
+        $auteurs = Auteur::all();
+        $genres = Genre::all();
+        return view('admin.examplaires',['examplaires'=>$examplaires])->with("categories",$categories)->with("auteurs",$auteurs)->with("genres",$genres);
     }
     public function store(Request $request)
     {
@@ -23,6 +27,13 @@ class ExamplaireController extends Controller
         if($request->hasFile('pdf'))
             $examplaire->pdf = $request->pdf->store('pdfs');
         $examplaire->is_disponible = 1;
+        $examplaire->genre_id = $request->input('genre');
+        $examplaire->auteur_id = $request->input('auteur');
+        $examplaire->qte = $request->input('qte');
+        $examplaire->prix = $request->input('prix');
+        if($request->hasFile('image'))
+            $examplaire->image = $request->image->store('imgs');
+        
         $examplaire->save();
         //return $request->all();
            return   redirect('/examplaires');
