@@ -16,7 +16,7 @@ class CreateExamplairesTable extends Migration
         Schema::create('examplaires', function (Blueprint $table) {
             $table->id();
             $table->string("titre");
-            $table->string("description");
+            $table->longText("description");
             $table->boolean("is_disponible");
             $table->timestamps();
         });

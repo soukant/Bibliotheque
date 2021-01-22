@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Examplaire;
+use App\Categorie;
 class HomeController extends Controller
 {
     /**
@@ -23,7 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('front.index');
+        $examplaire =  Examplaire::all();
+        $categories = Categorie::all();
+        return view('front.index',['examplaire'=> $examplaire])->with('categories',$categories);
     }
     public function admin()
     {
