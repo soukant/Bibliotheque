@@ -42,9 +42,7 @@ class ExamplaireController extends Controller
     {
         $examplaire =  Examplaire::find($id);
         $categories = Categorie::all();
-        $auteurs = Auteur::all();
-        $genres = Genre::all();
-        return view('admin.editExamplaire',['examplaire'=> $examplaire])->with('categories',$categories)->with("auteurs",$auteurs)->with("genres",$genres);
+        return view('admin.editExamplaire',['examplaire'=> $examplaire])->with('categories',$categories);
     }
     public function update(Request $request,$id)
     {
@@ -52,10 +50,6 @@ class ExamplaireController extends Controller
         $examplaire->titre = $request->input("titre");
         $examplaire->description = $request->input("description");
         $examplaire->categorie_id = $request->input("select");
-        $examplaire->genre_id = $request->input("genre");
-        $examplaire->auteur_id = $request->input("auteur");
-        $examplaire->qte = $request->input("qte");
-        $examplaire->prix= $request->input("prix");
         $examplaire->is_disponible = 1;
         $examplaire->save();
         return redirect('/examplaires');
