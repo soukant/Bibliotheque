@@ -55,5 +55,6 @@ Route::group(['middleware' => ['auth','admin']], function(){
     Route::resource('livres','LivreController');
     Route::resource('genres','GenreController');
     Route::resource('auteurs','AuteurController');
+    Route::resource('commandes','CommandeController');
 
 

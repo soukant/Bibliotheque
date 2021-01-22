@@ -41,22 +41,17 @@
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
-            <a href="/livres">
-              <i class="now-ui-icons education_atom"></i>
-              <p>Livre</p>
-            </a>
-          </li>
+         
           <li>
             <a href="/genres">
               <i class="now-ui-icons location_map-big"></i>
               <p>Genre</p>
             </a>
           </li>
-          <li class="{{ 'abouts' == request()->path() ? 'active' : '' }}">
-            <a href="/abouts">
+          <li class="{{ 'commandes' == request()->path() ? 'active' : '' }}">
+            <a href="/commandes">
               <i class="now-ui-icons ui-1_bell-53"></i>
-              <p>About</p>
+              <p>Commandes</p>
             </a>
           </li>
           <li class="{{ 'role-register' == request()->path() ? 'active' : '' }}">
@@ -68,8 +63,8 @@
           
           <li  class="{{ 'examplaires' == request()->path() ? 'active' : '' }}">
             <a href="/examplaires">
-            <i class="now-ui-icons location_map-big"></i>
-              <p>EXAMPLAIRES</p>
+            <i class="now-ui-icons education_atom"></i>
+              <p>Examplaires</p>
             </a>
           </li>
           <li class="{{ 'categories' == request()->path() ? 'active' : '' }}" >

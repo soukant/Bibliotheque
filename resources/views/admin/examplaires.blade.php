@@ -37,7 +37,6 @@
           </div>
           <div class="input-group">
             <input type="file" class="form-control" name="pdf" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-            <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Upload</button>
           </div>
           <div class="form-group">
             <label for="Genre" class="col-form-label">Genre:</label> <br>
@@ -54,18 +53,6 @@
               <option value='{{$auteur->id_auteur}}'> {{$auteur->nom}}  {{$auteur->prenom}}</option>
            @endforeach
            </select>
-          </div>
-          <div class="form-group">
-            <label for="qte" class="col-form-label">Qte</label>
-            <input  name ="qte" class="form-control" id="qte">
-          </div>
-          <div class="form-group">
-            <label for="prix" class="col-form-label">Prix</label>
-            <input  name ="prix" class="form-control" id="qte">
-          </div>
-          <div class="input-group">
-            <input type="file" class="form-control" name="image" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-            <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Upload Image</button>
           </div>
       </div>
       <div class="modal-footer">
@@ -178,7 +165,7 @@
                           {{$examplaire->prix}}
                         </td>
                         <td>
-                          <img src="{{asset($examplaire->image)}}" width="90" height="90" alt="">
+                          {{$examplaire->image}}
                         </td>
                         <td>
                             <a href='/examplaires/{{$examplaire->id}}/edit'  class="btn btn-success"> Edit </a>
