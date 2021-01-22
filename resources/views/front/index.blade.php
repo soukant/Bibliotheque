@@ -448,7 +448,7 @@
                         @endif
                     @endforeach
                         <figure>
-                            <img src="{{asset('assets/images/category-filter/home-v1/category-filter-img-01.jpg')}}" alt="New Releaase" />
+                            <img  width='100' height="111" src="{{asset('storage/'.$examplaire_->image)}}" alt="New Releaase" />
                             <figcaption class="bg-orange">
                                 <div class="info-block">
                                     <h4>{{$examplaire_->titre}}</h4>
