@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Examplaire;
 use App\Categorie;
+use App\Examplaire;
+
 class HomeController extends Controller
 {
     /**
@@ -24,9 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $examplaire =  Examplaire::all();
-        $categories = Categorie::all();
-        return view('front.index',['examplaire'=> $examplaire])->with('categories',$categories);
+        $categories= Categorie::all();
+        $examplaires= Examplaire::all();
+        return view('front.index')->with('categories',$categories)->with('examplaire',$examplaires);
     }
     public function admin()
     {
